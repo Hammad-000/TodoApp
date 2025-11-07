@@ -12,6 +12,7 @@ function TodoItem({ todo, handleEdit, handleDelete }) {
       </div>
     </div>
   );
+  
 }
 
 export default TodoItem;
