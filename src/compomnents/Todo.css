@@ -158,7 +158,6 @@ img{
     height: 40px;
 }
 
-
 .logo{
     display: flex;
     align-items: center;
@@ -167,7 +166,6 @@ img{
 #checkbox:checked + img::before {
   background-color: #fff;
 }
-
 
 #checkbox:checked + image {
   color: #fff;
