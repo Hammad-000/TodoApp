@@ -4,6 +4,9 @@ import TodoList from "./TodoList";
 import SearchBar from "./SearchBar";
 import ThemeToggle from "./ThemeToggle";
 import "./Todo.css";
+import lightLogo from "../images/edit-3-svgrepo-com.svg";
+import darkLogo from "../images/edit-3-svgrepo-com (2).svg";
+
 
 
 function TodoApp() {
@@ -60,14 +63,11 @@ function TodoApp() {
 
       <h2 className="logo">
         <img
-          src={
-            theme === "dark"
-              ? "/src/images/edit-3-svgrepo-com (2).svg"
-              : "./src/images/edit-3-svgrepo-com.svg"
-          }
+          src={theme === "dark" ? darkLogo : lightLogo}
           alt="Todo Logo"
         />
         Todo App
+        
       </h2>
 
       <TodoInput
