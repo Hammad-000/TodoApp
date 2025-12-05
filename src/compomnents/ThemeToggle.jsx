@@ -4,7 +4,7 @@ import darkLogo from "../images/edit-3-svgrepo-com (2).svg";
 
 function ThemeToggle({ theme, setTheme }) {
   return (
-    <div className="theme-toggle">
+    <div className="theme-toggle ">
     
       <input
         type="checkbox"
