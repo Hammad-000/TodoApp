@@ -6,7 +6,7 @@ function TodoInput({ newTodo, setNewTodo, handleAdd, editId }) {
   }
 
   return (
-    <div className="input-section">
+    <div className="input-section p-2">
       <input
         type="text"
         placeholder="Enter todo..."
