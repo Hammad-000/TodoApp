@@ -1,6 +1,6 @@
 function TodoInput({ newTodo, setNewTodo, handleAdd, editId }) {
   function handleKeyDown(e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && newTodo.trim()) {
       handleAdd();
     }
   }
@@ -10,11 +10,15 @@ function TodoInput({ newTodo, setNewTodo, handleAdd, editId }) {
       <input
         type="text"
         placeholder="Enter todo..."
+        aria-label="Todo input"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleAdd}>{editId ? "Update" : "Add"}</button>
+
+      <button onClick={handleAdd} disabled={!newTodo.trim()}>
+        {editId ? "Update" : "Add"}
+      </button>
     </div>
   );
 }
