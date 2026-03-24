@@ -7,8 +7,6 @@ import "./Todo.css";
 import lightLogo from "../images/edit-3-svgrepo-com.svg";
 import darkLogo from "../images/edit-3-svgrepo-com (2).svg";
 
-
-
 function TodoApp() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
@@ -16,16 +14,27 @@ function TodoApp() {
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState("light");
 
+  // Load theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) setTheme(savedTheme);
   }, []);
 
+  // Apply theme
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  // Create date
+  function createDate() {
+    return new Date().toLocaleString("en-GB", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+  }
+
+  // Add / Edit
   function handleAdd() {
     if (!newTodo.trim()) return;
 
@@ -38,7 +47,13 @@ function TodoApp() {
       setEditId("");
       setNewTodo("");
     } else {
-      setTodos([...todos, { id: Date.now(), text: newTodo }]);
+      const newItem = {
+        id: Date.now(),
+        text: newTodo,
+        date: createDate(),
+      };
+
+      setTodos([...todos, newItem]);
       setNewTodo("");
     }
   }
@@ -67,7 +82,6 @@ function TodoApp() {
           alt="Todo Logo"
         />
         Todo App
-        
       </h2>
 
       <TodoInput

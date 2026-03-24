@@ -1,20 +1,20 @@
-import TodoItem from "./TodoItem";
-
 function TodoList({ todos, handleEdit, handleDelete }) {
   return (
-    <div className="todo-list">
-      {todos.length > 0 ? (
-        todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleEdit={handleEdit}
-            handleDelete={handleDelete}
-          />
-        ))
-      ) : (
-        <p className="no-todos">No todos found.</p>
-      )}
+    <div>
+      {todos.map((todo) => (
+        <div key={todo.id} className="todo-item">
+          <div>
+            <span>{todo.text}</span>
+            <br />
+            <small style={{ color: "gray" }}>{todo.date}</small>
+          </div>
+
+          <div>
+            <button onClick={() => handleEdit(todo.id)}>Edit</button>
+            <button onClick={() => handleDelete(todo.id)}>Delete</button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
