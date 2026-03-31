@@ -1,3 +1,5 @@
+import { FaEdit, FaTrash } from "react-icons/fa";
+
 function TodoList({ todos, handleEdit, handleDelete }) {
   return (
     <div>
@@ -10,8 +12,13 @@ function TodoList({ todos, handleEdit, handleDelete }) {
           </div>
 
           <div>
-            <button onClick={() => handleEdit(todo.id)}>Edit</button>
-            <button onClick={() => handleDelete(todo.id)}>Delete</button>
+<button onClick={() => handleEdit(todo.id)}>
+  <FaEdit />
+</button>
+
+<button onClick={() => handleDelete(todo.id)}>
+  <FaTrash />
+</button>
           </div>
         </div>
       ))}
